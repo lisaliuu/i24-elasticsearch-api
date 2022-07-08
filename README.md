@@ -10,13 +10,11 @@ Connect to an Elasticsearch instance using a config file according to the templa
 - Returns the number of log files that match some query
 - Lists all the indices in the Elasticsearch instance
 
-## Example Use:
-
-### Query syntax:
+## Query Parameter Syntax:
 Syntax follows [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.3/query-dsl.html).
 
 #### Match one field: 
-```
+```json
 query = {
     "match": {
         "level": "INFO"
@@ -27,8 +25,8 @@ query = {
 
 #### Match multiple fields:
 
-```
-mquery={
+```json
+mquery = {
     "bool": {
       "must": [
         {
@@ -45,4 +43,6 @@ mquery={
     }
   }
 ```
+## Example Use:
+
 
