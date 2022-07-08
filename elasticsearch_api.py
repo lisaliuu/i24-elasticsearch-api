@@ -19,25 +19,27 @@ def pprint(data):
     print(json_format)
 
 
-class ElasticSearchReader:
+class ElasticsearchReader:
     """
     Elasticsearch Python connection from https://elasticsearch-py.readthedocs.io/en/v8.3.2/api.html#module-elasticsearch
     :param config: configuration file that contains connection information according to template
     """
     
     def __init__(self, config):
+        
         with open('config.json') as f:
             config_params = json.load(f)
             es_host=config_params['host']
             es_port=config_params['port']
             es_user=config_params['username']
             es_password=config_params['password']
+            
         self.es=Elasticsearch('http://'+es_host+':'+es_port,basic_auth=(es_user, es_password), verify_certs=False)
     
 
     def search_result(self, index=None, query=None, incl_fields=None, size=None):
         """
-        Searches database either in indices. To be used with return_logs and log_count
+        Searches database indices. To be used with return_logs and log_count
         :param index: ['index1','index2'...] list of index to search in. None = search in all indices
         :param query: JSON object that defines a query. None = no restrictions. See here for more info: https://www.elastic.co/guide/en/elasticsearch/reference/8.3/query-dsl.html
         :param incl_fields: ['level','pid'...] list of fields to include in return. None = return all fields
@@ -57,7 +59,7 @@ class ElasticSearchReader:
         return result['hits']['hits']
     
     
-    def log_count(self,result):
+    def log_count(self, result):
         """
         Parses the return type of search_result to return number of log messages that matched query
         :param result: object returned by search_result
@@ -69,11 +71,11 @@ class ElasticSearchReader:
     def list_all_indices(self, verbose=False):
         """
         Returns list of all indices in Elasticsearch instance
-        :param verbose: True/False to return additional information about each index
+        :param verbose: True/False to return additional information about each index (optional)
         :return: Python list of all indices
         """
         if verbose:
             return self.es.indices.get(index="*")
         else:
             return list(self.es.indices.get(index="*").keys())
-    
+
