@@ -28,21 +28,21 @@ query=
 mquery = 
 ```json
 {
-    "bool": {
+   "bool": {
       "must": [
-        {
-          "match": {
+      {
+         "match": {
             "level": "INFO"
-          }
-        },
-        {
-          "match": {
+         }
+      },
+      {
+         "match": {
             "_id": "qDv8ioABjqqRODayRSi1"
-          }
-        }
+         }
+      }
       ]
-    }
-  }
+   }
+}
 ```
 ## Example Use:
 
