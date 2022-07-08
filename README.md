@@ -12,19 +12,19 @@ Connect to an Elasticsearch instance using a config file according to the templa
 
 ## Example Use:
 
-###Query syntax:
+### Query syntax:
 Syntax follows [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.3/query-dsl.html).
 
 #### Match one field: 
-
+'''
 query = {
     "match": {
         "level": "INFO"
     }
 }
-
+'''
 #### Match multiple fields:
-
+'''
 mquery={
     "bool": {
       "must": [
@@ -41,3 +41,4 @@ mquery={
       ]
     }
   }
+'''
