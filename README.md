@@ -45,5 +45,17 @@ mquery =
 }
 ```
 ## Example Use:
+```
+# connect to Elasticsearch
+es=ElasticSearchReader("config.json")
 
+#queries in the '.ds-logs-generic-default-2022.05.03-000001' index with 'mquery', outputting the 'level' and 'pid' fields
+result=es.search_result(index=['.ds-logs-generic-default-2022.05.03-000001'],query=mquery,incl_fields=['level','pid'])
+
+#return_logs parses result to return the logs as a dictionary
+output = es.return_logs(result)
+
+#formats and prints the logs
+pprint(output)
+```
 
