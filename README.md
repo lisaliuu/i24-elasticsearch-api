@@ -16,6 +16,7 @@ Syntax follows [Query DSL](https://www.elastic.co/guide/en/elasticsearch/referen
 #### Match one field:
 ```
 query=
+```
 ```json
 {
     "match": {
