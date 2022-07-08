@@ -14,9 +14,7 @@ Connect to an Elasticsearch instance using a config file according to the templa
 Syntax follows [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.3/query-dsl.html).
 
 #### Match one field:
-```
 query=
-```
 ```json
 {
     "match": {
@@ -27,9 +25,9 @@ query=
 
 
 #### Match multiple fields:
-
+mquery = 
 ```json
-mquery = {
+{
     "bool": {
       "must": [
         {
