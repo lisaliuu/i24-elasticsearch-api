@@ -4,6 +4,7 @@ Queries from Elasticsearch using [Python Elasticsearch client](https://elasticse
 
 ## Set up:
 Install elasticsearch with `python -m pip install elasticsearch`
+
 Connect to an Elasticsearch instance using a config file according to the template given.
 
 ## Features:
