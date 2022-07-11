@@ -47,7 +47,7 @@ mquery =
 }
 ```
 ## Example Use:
-```
+```python
 from elasticsearch_api import ElasticsearchReader
 
 # connect to Elasticsearch
