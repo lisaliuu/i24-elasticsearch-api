@@ -49,9 +49,10 @@ mquery =
 ## Example Use:
 ```python
 from elasticsearch_api import ElasticsearchReader
+from elasticsearch_api import pprint
 
 # connect to Elasticsearch
-es=ElasticSearchReader("config.json")
+es=ElasticsearchReader("config.json")
 
 #queries in the '.ds-logs-generic-default-2022.05.03-000001' index with 'mquery', outputting the 'level' and 'pid' fields
 result=es.search_result(index=['.ds-logs-generic-default-2022.05.03-000001'],query=mquery,incl_fields=['level','pid'])
