@@ -1,52 +1,18 @@
-# i24-elasticsearch-api
+# I24 Elasticsearch API
 
-Queries from Elasticsearch using [Python Elasticsearch client](https://elasticsearch-py.readthedocs.io/en/v8.3.2/).
+## Wrapper around Elasticsearch queries with [Python Elasticsearch Client](https://elasticsearch-py.readthedocs.io/en/v8.3.2/).
+This Python module is developed for the [I24-MOTION testbed](https://i24motion.org/) data processing pipeline. 
 
-## Set up:
-Install elasticsearch with `python -m pip install elasticsearch`
+### Motivation
+To design functions that wraps around the Elasticsearch client for metrics and logs specific to the lab's needs.
 
-Connect to an Elasticsearch instance using a config file according to the template given.
-
-## Features:
+### Result
+#### Supported Functions:
 - Returns log files that match some query
 - Returns the number of log files that match some query
 - Lists all the indices in the Elasticsearch instance
 
-## Query Parameter Syntax:
-Syntax follows [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.3/query-dsl.html).
-
-#### Match one field:
-query=
-```json
-{
-    "match": {
-        "level": "INFO"
-    }
-}
-```
-
-
-#### Match multiple fields:
-mquery = 
-```json
-{
-   "bool": {
-      "must": [
-      {
-         "match": {
-            "level": "INFO"
-         }
-      },
-      {
-         "match": {
-            "_id": "qDv8ioABjqqRODayRSi1"
-         }
-      }
-      ]
-   }
-}
-```
-## Example Use:
+#### Example Use:
 ```python
 from elasticsearch_api import ElasticsearchReader
 from elasticsearch_api import pprint
@@ -63,4 +29,6 @@ output = es.return_logs(result)
 #formats and prints the logs
 pprint(output)
 ```
-
+### Set up
+1. Install elasticsearch with `python -m pip install elasticsearch`
+2. Connect to an Elasticsearch instance using a config file according to the template given.
